@@ -23,6 +23,6 @@ It can work only on scilab 6.0.0.
       1. 'nr'  - Newton Raphson Method
       2. 'gs'  - Gauss Seidel Method
  
-6. Call the function as start('nr') or start('gs')
+6. Call the function as `start('nr')` or `start('gs')`
 
 7. The results will be published on your console.
