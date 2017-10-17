@@ -2,7 +2,7 @@
 The files are capable of performing load-flow analysis in Newton Raphson methond and Gauss Siedel Method in Scilab.
 It can also print the results into a text file named `xx_report.txt` in the folder `xx_report` according to keyword, where `xx` being the keyword.
 
-It can work only on scilab 6.0.0.
+**It can work only on scilab 6.0.0.**
 
 ## Developed and integrated by:
 
