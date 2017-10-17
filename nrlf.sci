@@ -1,4 +1,6 @@
 // Program for Newton-Raphson Load Flow Analysis..
+function nrlf(report)
+
 Y = ybus();             // Calling ybus.sci to get Y-Bus Matrix..
 busd = busdatas();      // Calling busdatas..
 BMva = 100;                 // Base MVA..
@@ -156,4 +158,5 @@ while (Tol > 1e-5)   // Iteration starting..
     Tol = max(abs(M));                  // Tolerance..
     
 end
-loadflow(nbus,V,del,BMva, 'nr');              // Calling Loadflow.sci..
+loadflow(nbus,V,del,BMva, 'nr', report);              // Calling Loadflow.sci..
+endfunction

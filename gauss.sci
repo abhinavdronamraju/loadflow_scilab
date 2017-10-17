@@ -1,4 +1,5 @@
 // Assumption, Bus 1 is considered as Slack bus.
+function gauss(report);
   
 Y = ybus();             // Calling program "ybus.sci" to get Y-Bus. 
 busd = busdatas();      // Calling "busdatas.sci" for bus data.
@@ -50,4 +51,6 @@ end     // End of while loop / Iteration
 
 Ang = atan(imag(V), real(V));    // Final Bus Voltage Angles in Degree.
 
-loadflow(nbus, V, Ang, BMva, 'gs');
+loadflow(nbus, V, Ang, BMva, 'gs', report);
+
+endfunction
