@@ -120,32 +120,24 @@ disp('##########################################################################
 
 elseif(report==1)
 
-fileid= strcat([pwd(), "/", "Report.txt"]);
 
-f_temp= mopen(fileid, 'at')
- mclose(f_temp);
-
-fid= mopen(fileid, 'wt');
 
 if(alg== 'nr')
+  fileid= strcat([pwd(), "/","nr_report" ,"/","nr_report.txt"]);
+
+  f_temp= mopen(fileid, 'at')
+  mclose(f_temp);
+ 
+  fid= mopen(fileid, 'wt');
+
      mfprintf(fid , '#########################################################################################');
      mfprintf(fid , '\n');
      mfprintf(fid, '-----------------------------------------------------------------------------------------');
-mfprintf(fid , '\n');
+     mfprintf(fid , '\n');
      mfprintf(fid, '                              Newton Raphson Loadflow Analysis ');
-mfprintf(fid , '\n');
+     mfprintf(fid , '\n');
      mfprintf(fid, '-----------------------------------------------------------------------------------------');
 mfprintf(fid , '\n');
-elseif(alg == 'gs')
-    mfprintf(fid, '#########################################################################################'); 
-mfprintf(fid , '\n');
-    mfprintf(fid, '-----------------------------------------------------------------------------------------');
-mfprintf(fid , '\n');
-    mfprintf(fid, '                                Gauss Seidel Loadflow Analysis ');
-mfprintf(fid , '\n');
-    mfprintf(fid, '-----------------------------------------------------------------------------------------');
-mfprintf(fid , '\n');
-end
 mfprintf(fid, '| Bus |    V   |  Angle  |     Injection      |     Generation     |          Load      |');
 mfprintf(fid , '\n');
 mfprintf(fid, '| No  |   pu   |  Degree |    MW   |   MVar   |    MW   |  Mvar    |     MW     |  MVar | ');
@@ -196,6 +188,77 @@ mfprintf(fid , '\n');
 mfprintf(fid,'#####################################################################################');
 mfprintf(fid , '\n');
 mclose(fid);
+
+
+
+elseif(alg == 'gs')
+
+  fileid= strcat([pwd(), "/","gs_report" ,"/","gs_report.txt"]);
+
+  f1_temp= mopen(fileid, 'at')
+  mclose(f1_temp);
+ 
+  fid1= mopen(fileid, 'wt');
+
+
+    mfprintf(fid1, '#########################################################################################'); 
+mfprintf(fid1 , '\n');
+    mfprintf(fid1, '-----------------------------------------------------------------------------------------');
+mfprintf(fid1 , '\n');
+    mfprintf(fid1, '                                Gauss Seidel Loadflow Analysis ');
+mfprintf(fid1 , '\n');
+    mfprintf(fid1 , '-----------------------------------------------------------------------------------------');
+mfprintf(fid1 , '\n');
+for m = 1:nb
+    mfprintf(fid1, '-----------------------------------------------------------------------------------------');
+    mfprintf(fid1 , '\n');
+    mfprintf(fid1, '%3g', m); mfprintf(fid1, '  %8.4f', V(m)); mfprintf(fid1, '   %8.4f', Del(m));
+    mfprintf(fid1, '  %8.3f', Pi(m)); mfprintf(fid1, '   %8.3f', Qi(m)); 
+    mfprintf(fid1, '  %8.3f', Pg(m)); mfprintf(fid1, '   %8.3f', Qg(m)); 
+    mfprintf(fid1, '  %8.3f', Pl(m)); mfprintf(fid1, '   %8.3f', Ql(m)); mfprintf(fid1, '\n');
+end
+mfprintf(fid1, '-----------------------------------------------------------------------------------------');
+mfprintf(fid1 , '\n');
+mfprintf(fid1, ' Total                  ');mfprintf(fid1, '  %8.3f', sum(Pi)); mfprintf(fid1, '   %8.3f', sum(Qi)); 
+mfprintf(fid1, '  %8.3f', sum(Pi+Pl)); mfprintf(fid1, '   %8.3f', sum(Qi+Ql));
+mfprintf(fid1, '  %8.3f', sum(Pl)); mfprintf(fid1, '   %8.3f', sum(Ql)); mfprintf(fid1, '\n');
+mfprintf(fid1,'-----------------------------------------------------------------------------------------');
+mfprintf(fid1, '\n');
+mfprintf(fid1,'#########################################################################################');
+mfprintf(fid1 , '\n');
+
+mfprintf(fid1,'-------------------------------------------------------------------------------------');
+mfprintf(fid1 , '\n');
+mfprintf(fid1,'                              Line Flow and Losses ');
+mfprintf(fid1 , '\n');
+mfprintf(fid1,'-------------------------------------------------------------------------------------');
+mfprintf(fid1 , '\n');
+mfprintf(fid1,'|From|To |    P    |    Q     | From| To |    P     |   Q     |      Line Loss      |');
+mfprintf(fid1 , '\n');
+mfprintf(fid1,'|Bus |Bus|   MW    |   MVar   | Bus | Bus|    MW    |  MVar   |     MW   |    MVar  |');
+mfprintf(fid1 , '\n');
+for m = 1:nl
+    p = fb(m); q = tb(m);
+    mfprintf(fid1,'-------------------------------------------------------------------------------------');
+    mfprintf(fid1 , '\n');
+    mfprintf(fid1,'%4g', p); mfprintf(fid1,'%4g', q); mfprintf(fid1,'  %8.3f', Pij_temp(p,q)); mfprintf(fid1,'   %8.3f', Qij_temp(p,q)); 
+    mfprintf(fid1,'   %4g', q); mfprintf(fid1,'%4g', p); mfprintf(fid1,'   %8.3f', Pij_temp(q,p)); mfprintf(fid1,'   %8.3f', Qij_temp(q,p));
+    mfprintf(fid1,'  %8.3f', Lpij_temp(m)); mfprintf(fid1,'   %8.3f', Lqij_temp(m));
+    mfprintf(fid1,'\n');
+end
+mfprintf(fid1,'-------------------------------------------------------------------------------------');
+mfprintf(fid1, '\n');
+mfprintf(fid1,'   Total Loss                                                 ');
+mfprintf(fid1,'  %8.3f', sum(Lpij_temp)); mfprintf(fid1,'   %8.3f', sum(Lqij_temp));  mfprintf(fid1,'\n');
+mfprintf(fid1,'-------------------------------------------------------------------------------------');
+mfprintf(fid1 , '\n');
+mfprintf(fid1,'#####################################################################################');
+mfprintf(fid1 , '\n');
+mclose(fid1);
+
+
+end
+
 end
 
 	
