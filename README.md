@@ -19,7 +19,7 @@ It can also print the results into a text file named `xx_report.txt` in the fold
 
 4. Execute start.sce by typing -> `exec start.sce`
 
-5. Call the runpf.sci function with the choice of algorithm.
+5. Call the `runpf.sci` function with the choice of algorithm.
     #### Keywords
       1. 'nr'  - Newton Raphson Method
       2. 'gs'  - Gauss Seidel Method
