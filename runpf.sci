@@ -12,7 +12,6 @@ function runpf(alg, varargin)
 	end
  end
 
-getd .;
 
 if(alg == 'nr')
 	 nrlf(report);

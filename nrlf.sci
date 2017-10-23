@@ -1,8 +1,9 @@
 // Program for Newton-Raphson Load Flow Analysis..
 function nrlf(report)
-
+global busdat;
+global linedat;
 Y = ybus();             // Calling ybus.sci to get Y-Bus Matrix..
-busd = busdatas();      // Calling busdatas..
+busd = busdat;      // Calling busdatas..
 BMva = 100;                 // Base MVA..
 bus = busd(:,1);            // Bus Number..
 nbus = max(bus);            // To get no. of buses

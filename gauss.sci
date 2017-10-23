@@ -1,8 +1,11 @@
 // Assumption, Bus 1 is considered as Slack bus.
 function gauss(report);
+    
+global busdat;
+global linedat;
   
 Y = ybus();             // Calling program "ybus.sci" to get Y-Bus. 
-busd = busdatas();      // Calling "busdatas.sci" for bus data.
+busd = busdat;      // Calling "busdatas.sci" for bus data.
 BMva= 100;                  // Base MVA  
 bus = busd(:,1);            // Bus number.
 nbus = max(bus);            // To get no. of buses

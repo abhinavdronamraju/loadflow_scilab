@@ -1,10 +1,11 @@
 // Program for Bus Power Injections, Line & Power flows (p.u)...
 
 function loadflow(nb,V,del,BMva, alg, report)
-
+global busdat;
+global linedat;
 Y = ybus();                   // Calling Ybus program..
-lined = linedatas();          // Get linedats..
-busd = busdatas();            // Get busdatas..
+lined = linedat;          // Get linedats..
+busd = busdat;            // Get busdatas..
 Vm = pol2rect(V,del);           // Converting polar to rectangular..
 Del = 180/%pi*del;               // Bus Voltage Angles in Degree...
 fb = lined(:,1);                // From bus number...
@@ -116,6 +117,7 @@ mprintf('   Total Loss                                                 ');
 mprintf('  %8.3f', sum(Lpij_temp)); mprintf('   %8.3f', sum(Lqij_temp));  mprintf('\n');
 disp('-------------------------------------------------------------------------------------');
 disp('#####################################################################################');
+disp('The load flow analysis is completed successfully');
 
 
 elseif(report==1)
@@ -188,6 +190,10 @@ mfprintf(fid , '\n');
 mfprintf(fid,'#####################################################################################');
 mfprintf(fid , '\n');
 mclose(fid);
+mprintf('\n');
+mprintf('The report is generated successfully');
+mprintf('\n');
+mprintf('Please find the report at %s', fileid);
 
 
 
@@ -255,6 +261,10 @@ mfprintf(fid1 , '\n');
 mfprintf(fid1,'#####################################################################################');
 mfprintf(fid1 , '\n');
 mclose(fid1);
+mprintf('\n');
+mprintf('The report is generated successfully');
+mprintf('\n');
+mprintf('Please find the report at %s ', fileid);
 
 
 end
