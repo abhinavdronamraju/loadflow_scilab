@@ -13,21 +13,21 @@ It can also print the results into a text file named `xx_report.txt` in the fold
 
 1. Clone this repo to a folder of your convenience
 
-2. Make changes in linedatas.sci and busdatas.sci according to your loadflow problem, save and exit.
+2. Make changes in start.sce according to your loadflow problem, save and exit.
 
 3. Open scilab and `cd` to the folder of the repo.
 
-4. Execute start.sci by typing -> `exec start.sci`
+4. Execute start.sce by typing -> `exec start.sce`
 
-5. Call the start.sci function with the choice of algorithm.
+5. Call the runpf.sci function with the choice of algorithm.
     #### Keywords
       1. 'nr'  - Newton Raphson Method
       2. 'gs'  - Gauss Seidel Method
       3. 'report' - Generate `Report.txt` with the results.
  
-6. Calling the function as `start('nr')` or `start('gs')` will post the results in the console.
+6. Calling the function as `runpf('nr')` or `runpf('gs')` will post the results in the console.
 
-7. Calling the function as `start('nr', 'report')` or `start('gs', 'report')` will print the results in the `nr_report.txt` and `gs_report.txt` respectively. 
+7. Calling the function as `runpf('nr', 'report')` or `runpf('gs', 'report')` will print the results in the `nr_report.txt` and `gs_report.txt` respectively. 
 
 ## Things to remember:
 
