@@ -1,4 +1,4 @@
-function start(alg, varargin)
+function runpf(alg, varargin)
 
 
  report=0;
@@ -12,13 +12,7 @@ function start(alg, varargin)
 	end
  end
 
- exec pol2rect.sci;
- exec linedatas.sci;
- exec busdatas.sci;
- exec loadflow.sci;
- exec ybus.sci;
- exec nrlf.sci;
- exec gauss.sci;
+getd .;
 
 if(alg == 'nr')
 	 nrlf(report);
