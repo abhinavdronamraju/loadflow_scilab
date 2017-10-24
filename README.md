@@ -23,7 +23,7 @@ It can also print the results into a text file named `xx_report.txt` in the fold
     #### Keywords
       1. 'nr'  - Newton Raphson Method
       2. 'gs'  - Gauss Seidel Method
-      3. 'report' - Generate `Report.txt` with the results.
+      3. 'report' - Generate `xxreport.txt` with the results.
  
 6. Calling the function as `runpf('nr')` or `runpf('gs')` will post the results in the console.
 
