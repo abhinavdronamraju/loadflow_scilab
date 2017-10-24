@@ -13,7 +13,7 @@ It can also print the results into a text file named `xx_report.txt` in the fold
 
 1. Clone this repo to a folder of your convenience
 
-2. Make changes in start.sce according to your loadflow problem, save and exit.
+2. Make changes in `start.sce` according to your loadflow problem, save and exit.
 
 3. Open scilab and `cd` to the folder of the repo.
 
