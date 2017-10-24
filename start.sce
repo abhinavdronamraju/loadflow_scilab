@@ -23,4 +23,19 @@ linedat=    [ 1      2       0.02    0.08     0.01  ;
 
 
 getd .;
+disp("Enter the type of Algorithm");
+disp("nr ---> Newton_Raphson");
+disp("gs --> Gauss_Siedel");
+Alg=input("--->","string");
+disp("Do u want the printed report in txt format y/n---");
+Rep=input("--->","string");
+if(Alg=='nr' & Rep=='y')
+    nrlf(1);
+elseif(Alg=='nr' & Rep=='n')
+    nrlf(0);
+elseif(Alg=='gs' & Rep=='y')
+    gauss(1);
+elseif(Alg=='gs' & Rep=='n')
+gauss(0);
+end
 

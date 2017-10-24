@@ -19,17 +19,17 @@ It can also print the results into a text file named `xx_report.txt` in the fold
 
 4. Execute start.sce by typing -> `exec start.sce`
 
-5. Call the `runpf.sci` function with the choice of algorithm.
+5. Enter the type of Algorithm
     #### Keywords
       1. 'nr'  - Newton Raphson Method
       2. 'gs'  - Gauss Seidel Method
-      3. 'report' - Generate `xxreport.txt` with the results where `xx` being the one among above two keywords.
  
-6. Calling the function as `runpf('nr')` or `runpf('gs')` will post the results in the console.
-
-7. Calling the function as `runpf('nr', 'report')` or `runpf('gs', 'report')` will print the results in the `nr_report.txt` and `gs_report.txt` respectively. 
-
-## Things to remember:
+6. Enter y/n accordingly
+    #### Keywords
+      1. y  -  If you want the report in .txt file
+      2. n  -  If you want the result to be displayed on console.
+      
+# Things to remember:
 
 1. Base MVA is set to 100 MVA.
 
